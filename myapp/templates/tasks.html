@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hola desde tasks</h1>
+    <div>
+        {# TODO: Add CSS classes #}
+        <ul>
+            {% for t in tasks %}
+            <li>{{t.title}} {{t.description}} {{t.project.name}}</li>
+            {% if not t.isDone %}<p>Tarea pendiente</p>{% else %}<p>Tarea realizada</p> {% endif %}
+            <button>Done</button>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+{% endblock %}
